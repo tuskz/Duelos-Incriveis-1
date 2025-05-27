@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    background-image: url('../img/The_Courtyard.png'); /* Caminho da imagem */
+    background-size: cover;   /* Preenche toda a tela */
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.comecar {
+    background-color: rgba(0, 0, 0, 0.623); /* Botão com fundo semi-transparente */
+    color: white;
+    padding: 30px 60px;
+    text-decoration: none;
+    font-size: 52px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.duelosincriveis {
+    color: rgb(226, 215, 215);
+    font-size: 90px;
+    text-align: center;
+    text-shadow: 3px 3px 3px red;
+    font-family: 'Press Start 2P', cursive;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Seleção Mortal Kombat 1 Clássico</title>
+
+<!-- Fonte pixelada parecida com MK -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/selecao.css" />
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000; /* fundo preto */
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 720px;
+  width: 95vw;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: 5px;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px yellow;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 140px);
+  grid-template-rows: repeat(3, 160px);
+  gap: 20px;
+  justify-content: center;
+}
+
+.character {
+  background-color: black;
+  border: 3px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  user-select: none;
+}
+
+.character:hover {
+  border-color: yellow;
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.character img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  image-rendering: pixelated; /* para deixar pixelado */
+}
+
+.character p {
+  margin-top: 8px;
+  font-size: 0.7rem;
+  color: white;
+  text-shadow: 1px 1px 3px black;
+}
+
+.character.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.choose-text {
+  margin-top: 40px;
+  font-size: 1.3rem;
+  color: yellow;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px yellow;
+  user-select: none;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+
+    <h1>Duelos Incríveis 1</h1>
+
+    <div class="grid">
+      <!-- 12 quadrados: 8 com personagens + 4 vazios para completar -->
+      <div class="character">
+        <img src="../img/bluezao.png" alt="Bluezao" />
+        <p>Bluezao</p>
+      </div>
+      <div class="character">
+        <img src="../img/felipeneto.png" alt="Felipe Neto" />
+        <p>Felipe Neto</p>
+      </div>
+      <div class="character">
+        <img src="../img/sonicexe.png" alt="Sonic.exe" />
+        <p>Sonic.exe</p>
+      </div>
+      <div class="character">
+        <img src="../img/herobrinecareca.png" alt="Herobrine careca" />
+        <p>Herobrine Careca</p>
+      </div>
+      <div class="character">
+        <img src="../img/xbox720.png" alt="Xbox 720" />
+        <p>Xbox 720</p>
+      </div>
+      <div class="character">
+        <img src="../img/playstation8.png" alt="Playstation 8" />
+        <p>Playstation 8</p>
+      </div>
+      <div class="character">
+        <img src="../img/flashcadeirante.png" alt="Flash Cadeirante" />
+        <p>Flash Cadeirante</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+
+      <!-- quadradinhos vazios para completar o grid 3x4 -->
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+    </div>
+
+    <div class="choose-text">ESCOLHA SEU LUTADOR</div>
+
+  </div>
+</body>
+</html>
