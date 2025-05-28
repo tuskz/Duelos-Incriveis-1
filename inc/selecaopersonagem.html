@@ -1,293 +1,451 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Duelos Incríveis 1 - Selecione seu Lutador</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duelos Incríveis 1 - Selecione seu Lutador</title>
 
-<link rel="icon" href="../img/mortalkombat.png" />
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../img/mortalkombat.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #000000;
-  font-family: 'Press Start 2P', cursive;
-  color: white;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  max-width: 720px;
-  width: 95vw;
-  text-align: center;
-}
-
-h1 {
-  font-size: 3rem;
-  letter-spacing: 5px;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px yellow;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 140px);
-  grid-template-rows: repeat(3, 160px);
-  gap: 20px;
-  justify-content: center;
-}
-
-.character {
-  background-color: black;
-  border: 3px solid white;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 10px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  user-select: none;
-}
-
-.character:hover {
-  border-color: yellow;
-  transform: scale(1.1);
-  z-index: 10;
-}
-
-.character img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  image-rendering: pixelated;
-}
-
-.character p {
-  margin-top: 8px;
-  font-size: 0.7rem;
-  color: white;
-  text-shadow: 1px 1px 3px black;
-}
-
-.character.empty {
-  background: transparent;
-  border: none;
-  cursor: default;
-}
-
-.choose-text {
-  margin-top: 40px;
-  font-size: 1.3rem;
-  color: yellow;
-  letter-spacing: 3px;
-  text-shadow: 0 0 10px yellow;
-  user-select: none;
-}
-
-.selection-display {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 40px;
-  pointer-events: none;
-}
-
-.selection-display .player-slot {
-  width: 300px;
-  height: 300px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 3px solid yellow;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.selection-display .player-slot img {
-  max-width: 100%;
-  max-height: 80%;
-  object-fit: contain;
-  image-rendering: pixelated;
-}
-
-.selection-display .player-slot p {
-  margin-top: 8px;
-  font-size: 0.6rem;
-  color: white;
-  text-shadow: 1px 1px 3px black;
-}
-
-#startButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: gray;
-  border: 3px solid white;
-  color: white;
-  font-family: 'Press Start 2P', cursive;
-  cursor: not-allowed;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#startButton.enabled {
-  background-color: yellow;
-  color: black;
-  cursor: pointer;
-}
-
-#startButton.enabled:hover {
-  background-color: white;
-}
-.tituloselecao {
-  font-size: 30 px;
-}
-</style>
-
-</head>
-<body>
-<div class="container">
-
-  <h1 class="tituloselecao">Duelos Incríveis 1</h1>
-
-  <div class="grid">
-    <div class="character">
-      <img src="../img/bluezao.png" alt="Bluezao" />
-      <p>Bluezao</p>
-    </div>
-    <div class="character">
-      <img src="../img/felipeneto.png" alt="Felipe Neto" />
-      <p>Felipe Neto</p>
-    </div>
-    <div class="character">
-      <img src="../img/sonicexe.png" alt="Sonic.exe" />
-      <p>Sonic.exe</p>
-    </div>
-    <div class="character">
-      <img src="../img/herobrinecareca.png" alt="Herobrine careca" />
-      <p>Herobrine Careca</p>
-    </div>
-    <div class="character">
-      <img src="../img/xbox720.png" alt="Xbox 720" />
-      <p>Xbox 720</p>
-    </div>
-    <div class="character">
-      <img src="../img/playstation8.png" alt="Playstation 8" />
-      <p>Playstation 8</p>
-    </div>
-    <div class="character">
-      <img src="../img/flashcadeirante.png" alt="Flash Cadeirante" />
-      <p>Flash Cadeirante</p>
-    </div>
-    <div class="character">
-      <img src="../img/senhorvelocimetro2.png" alt="Senhor Velocímetro" />
-      <p>Senhor Velocímetro</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character">
-      <img src="../img/interrogacao.png" alt="interrogacao" />
-      <p>Personagem Vazio</p>
-    </div>
-    <div class="character empty"></div>
-    <div class="character empty"></div>
-    <div class="character empty"></div>
-    <div class="character empty"></div>
-  </div>
-
-  <button id="startButton" disabled>COMEÇAR</button>
-
-  <div class="choose-text">ESCOLHA SEU LUTADOR</div>
-
-</div>
-
-<div class="selection-display">
-  <div id="player1" class="player-slot"></div>
-  <div id="player2" class="player-slot"></div>
-</div>
-
-<script>
-const characters = document.querySelectorAll('.character:not(.empty)');
-const player1 = document.getElementById('player1');
-const player2 = document.getElementById('player2');
-const startButton = document.getElementById('startButton');
-
-function updateStartButton() {
-  if (player1.hasChildNodes() && player2.hasChildNodes()) {
-    startButton.disabled = false;
-    startButton.classList.add('enabled');
-  } else {
-    startButton.disabled = true;
-    startButton.classList.remove('enabled');
-  }
-}
-
-characters.forEach(character => {
-  character.addEventListener('click', () => {
-    const imgSrc = character.querySelector('img').src;
-    const name = character.querySelector('p').innerText;
-
-    if (!player1.hasChildNodes()) {
-      player1.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
-    } else if (!player2.hasChildNodes()) {
-      player2.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
-    } else {
-      player1.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
-      player2.innerHTML = '';
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    updateStartButton();
-  });
+    body {
+      background-color: #000000;
+      font-family: 'Press Start 2P', cursive;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 720px;
+      width: 95vw;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 5px;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px yellow;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 140px);
+      grid-template-rows: repeat(3, 160px);
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .character {
+      background-color: black;
+      border: 3px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+      user-select: none;
+    }
+
+    .character:hover {
+      border-color: yellow;
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    .character img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .character p {
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    .character.empty {
+      background: transparent;
+      border: none;
+      cursor: default;
+    }
+
+    .choose-text {
+      margin-top: 40px;
+      font-size: 1.3rem;
+      color: yellow;
+      letter-spacing: 3px;
+      text-shadow: 0 0 10px yellow;
+      user-select: none;
+    }
+
+    .selection-display {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      pointer-events: none;
+    }
+
+    .selection-display .player-slot {
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 3px solid yellow;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .selection-display .player-slot img {
+      max-width: 100%;
+      max-height: 80%;
+      object-fit: contain;
+      image-rendering: pixelated;
+    }
+
+    .selection-display .player-slot p {
+      margin-top: 8px;
+      font-size: 0.6rem;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    #startButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: gray;
+      border: 3px solid white;
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      cursor: not-allowed;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #startButton.enabled {
+      background-color: yellow;
+      color: black;
+      cursor: pointer;
+    }
+
+    #startButton.enabled:hover {
+      background-color: white;
+    }
+
+    .tituloselecao {
+      font-size: 30px;
+    }
+
+    /* Media Queries for Responsiveness */
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 140px);
+        grid-template-rows: repeat(4, 160px);
+      }
+
+      .tituloselecao {
+        font-size: 2rem;
+      }
+
+      .choose-text {
+        font-size: 1rem;
+      }
+
+      #startButton {
+        font-size: 0.6rem;
+      }
+
+      .selection-display .player-slot {
+        width: 200px;
+        height: 200px;
+      }
+
+      .selection-display .player-slot img {
+        max-height: 60%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: repeat(2, 140px);
+        grid-template-rows: repeat(6, 160px);
+      }
+
+      .tituloselecao {
+        font-size: 1.5rem;
+      }
+
+      .choose-text {
+        font-size: 0.8rem;
+      }
+
+      #startButton {
+        font-size: 0.5rem;
+      }
+
+      .selection-display .player-slot {
+        width: 150px;
+        height: 150px;
+      }
+
+      .selection-display .player-slot img {
+        max-height: 50%;
+      }
+    }
+    .volume-control {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 1000;
+}
+
+.volume-control input[type="range"] {
+  width: 200px;
+  height: 8px;
+  background: #444;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: yellow;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume-control input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: yellow;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.volume-control input[type="range"]::-webkit-slider-runnable-track {
+  background: yellow;
+  height: 8px;
+  border-radius: 5px;
+}
+
+.volume-control input[type="range"]::-moz-range-track {
+  background: yellow;
+  height: 8px;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="tituloselecao">Duelos Incríveis 1</h1>
+
+    <div class="grid">
+      <div class="character">
+        <img src="../img/bluezao.png" alt="Bluezao" />
+        <p>Bluezao</p>
+      </div>
+      <div class="character">
+        <img src="../img/felipeneto.png" alt="Felipe Neto" />
+        <p>Felipe Neto</p>
+      </div>
+      <div class="character">
+        <img src="../img/sonicexe.png" alt="Sonic.exe" />
+        <p>Sonic.exe</p>
+      </div>
+      <div class="character">
+        <img src="../img/herobrinecareca.png" alt="Herobrine careca" />
+        <p>Herobrine Careca</p>
+      </div>
+      <div class="character">
+        <img src="../img/xbox720.png" alt="Xbox 720" />
+        <p>Xbox 720</p>
+      </div>
+      <div class="character">
+        <img src="../img/playstation8.png" alt="Playstation 8" />
+        <p>Playstation 8</p>
+      </div>
+      <div class="character">
+        <img src="../img/flashcadeirante.png" alt="Flash Cadeirante" />
+        <p>Flash Cadeirante</p>
+      </div>
+      <div class="character">
+        <img src="../img/senhorvelocimetro2.png" alt="Senhor Velocímetro" />
+        <p>Senhor Velocímetro</p>
+      </div>
+      <div class="character">
+        <img src="../img/kiansabe.png" alt="Kian Soubido" />
+        <p>Kian</p>
+      </div>
+      <div class="character">
+        <img src="../img/chicken jockey.png" alt="Jockey de galinha" />
+        <p>Chicken Jockey</p>
+      </div>
+      <div class="character">
+        <img src="../img/steve.png" alt="Steve redondo" />
+        <p>Steve</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+      <div class="character">
+        <img src="../img/interrogacao.png" alt="interrogacao" />
+        <p>Personagem Vazio</p>
+      </div>
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+      <div class="character empty"></div>
+    </div>
+
+<!-- Player de música -->
+<audio id="bgm" src="" loop autoplay></audio>
+
+<!-- Volume estilizado -->
+<div class="volume-control">
+  <label for="volumeSlider" style="color: yellow; font-family: 'Press Start 2P'; font-size: 0.6rem;">🔊 VOLUME</label>
+  <input type="range" id="volumeSlider" min="0" max="100" value="50">
+</div>
+
+
+    <button id="startButton" disabled>COMEÇAR</button>
+
+    <div class="choose-text">ESCOLHA SEU LUTADOR</div>
+  </div>
+
+  <div class="selection-display">
+    <div id="player1" class="player-slot"></div>
+    <div id="player2" class="player-slot"></div>
+  </div>
+
+  <script>
+    const characters = document.querySelectorAll('.character:not(.empty)');
+    const player1 = document.getElementById('player1');
+    const player2 = document.getElementById('player2');
+    const startButton = document.getElementById('startButton');
+
+    function updateStartButton() {
+      if (player1.hasChildNodes() && player2.hasChildNodes()) {
+        startButton.disabled = false;
+        startButton.classList.add('enabled');
+      } else {
+        startButton.disabled = true;
+        startButton.classList.remove('enabled');
+      }
+    }
+
+    characters.forEach(character => {
+      character.addEventListener('click', () => {
+        const imgSrc = character.querySelector('img').src;
+        const name = character.querySelector('p').innerText;
+
+        if (!player1.hasChildNodes()) {
+          player1.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
+        } else if (!player2.hasChildNodes()) {
+          player2.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
+        } else {
+          player1.innerHTML = `<img src="${imgSrc}" alt="${name}"><p>${name}</p>`;
+          player2.innerHTML = '';
+        }
+
+        updateStartButton();
+      });
+    });
+
+    startButton.addEventListener('click', () => {
+      if (!startButton.disabled) {
+        alert('Iniciar Luta!'); // Aqui você pode redirecionar para outra página ou iniciar a luta
+      }
+    });
+    // 🔥 Caminho da sua música
+const musicPath = "../audio/mortalkombat1menu.mp3";
+
+// Seleciona o player
+const bgm = document.getElementById('bgm');
+bgm.src = musicPath;
+bgm.volume = 0.5;
+bgm.play();
+
+// Volume slider
+const volumeSlider = document.getElementById('volumeSlider');
+
+volumeSlider.addEventListener('input', function () {
+  bgm.volume = volumeSlider.value / 100;
 });
 
-startButton.addEventListener('click', () => {
-  if (!startButton.disabled) {
-    alert('Iniciar Luta!'); // Aqui você pode redirecionar para outra página ou iniciar a luta
+// Extras opcionais (se quiser usar botões)
+function toggleMusic() {
+  if (bgm.paused) {
+    bgm.play();
+  } else {
+    bgm.pause();
   }
-});
-</script>
+}
 
+function increaseVolume() {
+  if (bgm.volume < 1) {
+    bgm.volume = Math.min(1, bgm.volume + 0.1);
+    volumeSlider.value = bgm.volume * 100;
+  }
+}
+
+function decreaseVolume() {
+  if (bgm.volume > 0) {
+    bgm.volume = Math.max(0, bgm.volume - 0.1);
+    volumeSlider.value = bgm.volume * 100;
+  }
+}
+
+</script>
 </body>
 </html>

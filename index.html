@@ -4,14 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duelos Incríveis 1 - Prepare-se</title>
-    <link rel="icon" href="">
+    <link rel="icon" href="img/mortalkombat.png">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+        /* Estilo básico */
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+
+        .duelosincriveis {
+            font-size: 58px;
+            margin-top: 50px;
+        }
+
+        .comecar {
+            display: block;
+            margin: 20px auto;
+            font-size: 24px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f00;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .volume-container {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Estilo para o controle de volume */
+        .volume-container input[type="range"] {
+            -webkit-appearance: none;
+            width: 200px;
+            height: 8px;
+            background: #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: background 0.3s ease;
+        }
+
+        .volume-container input[type="range"]:focus {
+            background: #ccc;
+        }
+
+        /* Botão Play/Pause dentro da barra de volume */
+        .play-pause-button {
+            width: 40px;
+            height: 40px;
+            background-color: #f00;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .play-pause-button:hover {
+            background-color: #c00;
+        }
+
+        .play-pause-button:focus {
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     
     <h1 class="duelosincriveis">Duelos Incríveis 1</h1>
     <a class="comecar" href="inc/selecaopersonagem.html">Começar</a>
+
+    <audio id="audio" loop>
+        <source src="audio/judasladygaga.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="volume-container">
+        <button id="playPauseButton" class="play-pause-button">▶</button>
+        <input type="range" id="volume" min="0" max="100" value="50">
+    </div>
+
+    <script>
+        const audio = document.getElementById('audio');
+        const volumeControl = document.getElementById('volume');
+        const playPauseButton = document.getElementById('playPauseButton');
+
+        audio.volume = 0.5;
+
+        // Tenta tocar o áudio automaticamente
+        window.addEventListener('load', function() {
+            const promise = audio.play();
+            if (promise !== undefined) {
+                promise.then(function() {
+                    // Música tocando automaticamente
+                    playPauseButton.textContent = '❚❚'; // Altera para o ícone de pause
+                }).catch(function(error) {
+                    // Se o autoplay falhar, o botão de play será mostrado
+                    playPauseButton.textContent = '▶';
+                });
+            }
+        });
+
+        // Evento para alterar o volume
+        volumeControl.addEventListener('input', function() {
+            audio.volume = this.value / 100;
+        });
+
+        // Evento de play/pause
+        playPauseButton.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseButton.textContent = '❚❚'; // Troca para o ícone de pause
+            } else {
+                audio.pause();
+                playPauseButton.textContent = '▶'; // Troca para o ícone de play
+            }
+        });
+    </script>
 
 </body>
 </html>
